@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package message_sender;
+
+service Messenger {
+    rpc SendMessage(SendMessageRequest) returns(SendMessageResponse);
+    rpc GetMessage(GetMessageRequest) returns(GetMessageResponse);
+}
+
+message SendMessageRequest {
+    string message_text = 1;
+}
+message SendMessageResponse {
+    string message_uid = 1;
+}
+
+message GetMessageRequest {
+    string message_uid = 1;
+}
+message GetMessageResponse {
+    string message_text = 1;
+}
